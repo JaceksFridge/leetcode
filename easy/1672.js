@@ -25,4 +25,3 @@ var maximumWealth = function(accounts) {
     return richest
 }
 
-// console.log(maximumWealth(accounts))
