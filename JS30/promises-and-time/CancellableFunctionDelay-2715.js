@@ -12,15 +12,12 @@ const cancelT = 50
 
 var cancellable = function(fn, args, t) {
 
-    const timeout = () => {
-        
-    }
-
-
+    const theFun = setTimeout(() => {
+        fn(...args)}, t)
+    
     const cancelFn = () => {
-
+        clearTimeout(theFun)
     }
-
 
     return cancelFn
 };
@@ -29,10 +26,8 @@ var cancellable = function(fn, args, t) {
 
 
 
-
-
 const log = (...argsArr) => {
-       result.push(fn(...argsArr))
+    result.push(fn(...argsArr))
  }
       
 const cancel = cancellable(fn, args, t);
