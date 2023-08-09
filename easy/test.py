@@ -1,5 +1,9 @@
 
 
-s = "Hello"
-new_string = s[1:]
-print(new_string)  # Outputs: "ello"
+s = 'adamsucks'
+
+minis = 'adam'
+
+
+if minis in s:
+    print('Python rules mofos')
