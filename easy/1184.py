@@ -6,22 +6,24 @@ destination = 3
 
 class Solution(object):
     def distanceBetweenBusStops(self, distance, start, destination):
-
+        
         forward_distance = 0
-        backward_distance = 0
+        backward_ditance = 0
         
-        for i in range(start, destination):
-            forward_distance += distance[i]
+        if start > destination:
+            start, destination = destination, start
             
-        print(distance)
-        distance = distance[destination:]
+        forward = distance[start:destination]
+
+        backward = distance[:start] + distance[destination:]
         
-        for num in distance:
-            backward_distance += num
-            
-        min_distance = min(forward_distance, backward_distance)
-        return min_distance
-        
+        for stop in forward:
+            forward_distance += stop
+        for stop in backward:
+            backward_ditance += stop
+
+        return min(forward_distance, backward_ditance)
+
         
 s = Solution()
 print(s.distanceBetweenBusStops(distance, start, destination))
