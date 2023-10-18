@@ -1,50 +1,24 @@
 
 
-s = "abcabcbb"
+s = "pwwkew"
 
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
 
 
-
-        # hashmap 
+        hashmap = {}
+        max_count = 0
+        start = 0
         
-        # sorted
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        # hashmap = {}
-        # alpha = "abcdefghijklmnopqrstuvwxyz"
-        # for i in range(len(alpha)):
-        #     hashmap[alpha[i]] = i + 1
-        
-        
-        # master_count = 0
-        # mini_count = 0    
-
-        # for i in range(len(s)):
-        #     if i == 0:
-        #         mini_count += 1
-        #         pass
-        #     elif hashmap[s[i]] - 1 == hashmap[s[i-1]]:
-        #         mini_count += 1
-        #     else:
-        #         if mini_count > master_count:
-        #             master_count = mini_count
-        #         mini_count = 0
-        # return master_count
+        for i, letter in enumerate(s):
+            end = i
+            
+            if letter in hashmap and hashmap[letter] >= start:
+                start = hashmap[letter] + 1
                 
+            hashmap[letter] = i
+            max_count = max(max_count, end - start + 1)
+        return max_count
+
 sol = Solution()
 print(sol.lengthOfLongestSubstring(s))
-
