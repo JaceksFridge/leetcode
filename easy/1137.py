@@ -8,7 +8,7 @@ class Solution(object):
             return 0
         elif n == 1:
             return 1
-        elif n == 2:
+        elif n == 1:
             return 2
         else:
             arr = [0, 1, 1]
