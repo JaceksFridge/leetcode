@@ -7,16 +7,14 @@ class Solution(object):
         
         
         leftsum = 0
+        rightsum = sum(nums)
         for i, num in enumerate(nums):
-            rightsum = 0
-            for j in range(i+1, len(nums)):
-                rightsum += nums[j]
-            
-            # print(leftsum, rightsum)
+            rightsum -= num
+
             if leftsum == rightsum:
                 return i
             leftsum += num
-        return 1
+        return -1
     
 s = Solution()
 print(s.pivotIndex(nums))
