@@ -1,20 +1,32 @@
 
-s = "{"
+s = "()"
 
-import re
 
 class Solution(object):
     def isValid(self, s):
         
-        pattern = r"(\(\)|\{\}|\[\])+"
-        match = re.fullmatch(pattern, s)
         
-        return True if match else False
+        stack = []
         
+        if not s:
+            return False
         
+        for string in s:
+            if string in "([{":
+                stack.append(string)
+            else: 
+                if not stack or \
+                    ( string == ')' and stack[-1] != '(' ) or \
+                    ( string == ']' and stack[-1] != '[' ) or \
+                    ( string == '}' and stack[-1] != '{' ) :
+                    return False
+                stack.pop()
+        return not stack
+
         
 
-
+        
+        
 sol = Solution()
 print(sol.isValid(s))
 
